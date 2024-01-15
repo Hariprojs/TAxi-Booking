@@ -118,7 +118,7 @@ const receiptContent = `
           
       
           window.location.reload()
-        }, 3000);
+        }, 5000);
       }
       localStorage.clear()
     }
@@ -171,6 +171,7 @@ const receiptContent = `
   };
 
   const Confirmed = () => {
+    if(!finalPayment)return;
   socket.emit("confirmbooking",{
 roomId,
 text:true
@@ -201,7 +202,7 @@ text:true
           return;
           
         }
-        fetchUserDetails(setuserDatasFetch);
+        fetchUserDetails(driverData?setdriverData:setuserDatasFetch);
       }
       console.log(response.data.message);
     } catch (error) {
@@ -213,7 +214,7 @@ text:true
         return;
       }
       if(tripcomplete){
-        fetchUserDetails()
+        fetchUserDetails(driverData?setdriverData:setuserDatasFetch)
       }
       console.error("Error updating booking:", error);
     }

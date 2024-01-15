@@ -19,7 +19,6 @@ const Users = new mongoose.Schema({
   //pre-validation
   Users.pre('save', function (next) {
     if (this.role === 'driver' && !this.Vehicleno) {
-      // If the role is 'driver' and Vehicleno is not provided, prevent saving
       next(new Error('Vehicleno is required for drivers'));
     } else {
       next(); 

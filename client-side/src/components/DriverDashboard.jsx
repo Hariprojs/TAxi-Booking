@@ -39,7 +39,7 @@ const DriverDashboard = () => {
     // Clear the selected user when pick-up time is accepted
     setSelectedUser(null);
 
-    // Optionally, refetch the user list or update the UI as needed
+    // Optionally, refetch the user list or update the UI 
   };
 
   console.log(userData);
@@ -67,7 +67,6 @@ const DriverDashboard = () => {
     const searchTerm = e.target.value.toLowerCase();
     setSearchInput(searchTerm);
 
-    // Filter divs based on the search input
     const filtered = filterplaces.filter((place) =>
       place.toLowerCase().includes(searchTerm)
     );
